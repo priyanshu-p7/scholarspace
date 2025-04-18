@@ -7,26 +7,26 @@
   }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
-  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #1a2a6c);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: white;
-}
-
-/* Animation keyframes */
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background: linear-gradient(-45deg, #0a0f2c, #000000, #0a0f2c, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
   }
-  50% {
-    background-position: 100% 50%;
+  
+  /* Animation keyframes */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -386,103 +386,105 @@ header {
     font-size: 1rem;
 }
 
-/* Modern Button Design */
+/* Button Base Styles */
 .card-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 32px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #2d3436, #0984e3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2d3436, #0984e3);
     color: white !important;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
-    gap: 12px;
-    position: relative;
-    overflow: hidden;
-
-    flex: 1 1 90px;
-  min-width: 120px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  min-height: 48px;
 }
 
-.card-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.2),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-.card-btn:hover::before {
-    left: 100%;
-}
-
-.card-btn i {
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-}
-
-.card-btn:hover {
-    box-shadow: 0 8px 25px rgba(41,128,185,0.3);
-    transform: translateY(-2px);
-}
-
-
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-    
-    .card-img {
-        height: 200px;
-    }
-    
-    .card-content {
-        padding: 1.4rem;
-    }
-}
-
-
-
-/* Modified CSS */
-
+/* Button Group Container */
 .btn-group {
   display: flex;
-  gap: 10px; /* Buttons ke beech fixed gap */
-  flex-wrap: wrap; /* Chote screens pe line break karne ke liye */
-}
-
-.card-action-btns {
-  display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-/* .card-btn {
-  Existing button styles
-  flex: 1 1 auto;
-  min-width: 120px;
-} */
-
-/* Different button colors */
-.card-btn.code-btn {
-  background: linear-gradient(135deg,  #2d3436, #0984e3);
+/* Equal Width for All Buttons */
+.card-action-btns .card-btn {
+  flex: 1 0 auto;
+  min-width: 180px;
+  max-width: 240px;
 }
 
-.card-btn.watch-btn {
-  background: linear-gradient(135deg, #2d3436, #0984e3);
+/* Hover Effects */
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(41, 128, 185, 0.25);
 }
+
+.card-btn:active {
+  transform: translateY(0);
+}
+
+/* Shine Effect */
+.card-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+  transition: 0.75s;
+}
+
+.card-btn:hover::after {
+  left: 150%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-btn {
+    min-width: 140px;
+    max-width: 100%;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-group {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-action-btns {
+    flex-direction: column;
+  }
+  
+  .card-btn {
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  .btn-group {
+    gap: 8px;
+  }
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
