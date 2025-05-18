@@ -173,6 +173,9 @@ header nav ul li a:hover {
   animation: fadeIn 2s ease-out;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
+.links{
+  color:red;
+}
 
 .buttons {
   display: flex;
